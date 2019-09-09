@@ -270,6 +270,10 @@ func defaultPriorities() sets.String {
 
 		// ImageLocalityPriority prioritizes nodes that have images requested by the pod present.
 		factory.RegisterPriorityFunction2("ImageLocalityPriority", priorities.ImageLocalityPriorityMap, nil, 1),
+
+		// Network node
+		// 100000 = NodePreferAvoidPodsPriority * 10
+		factory.RegisterPriorityFunction2("NetworkPriority", priorities.NetworkPriorityMap, nil, 100000),
 	)
 }
 
